@@ -10,8 +10,8 @@
 
 <body>
     <div class="chat-container">
-        <div class="chat-box">
-            <!-- Первое сообщение ассистента, где применяется фильтр |safe -->
+        <div class="chat-box" id="chat-box">
+            <!-- Первое сообщение ассистента -->
             <div class="message gpt">{{ assistant_first_message | safe }}</div>
         </div>
 
@@ -21,7 +21,7 @@
             </label>
             <input type="file" id="fileInput" style="display: none;">
             <input type="text" id="userInput" placeholder="Напиши что-нибудь...">
-            <button id="sendBtn" type="submit">Отправить</button>
+            <button id="sendBtn">Отправить</button>
         </div>
     </div>
 

@@ -23,6 +23,16 @@ async def get_chat_page(request: Request):
 
 @app.post("/send_message/")
 async def send_message(message: Message):
+    # Проверяем, что сообщение передано
+    if not message.text:
+        return {"response": "Ошибка: сообщение пустое"}
+
     # Получаем ответ от ассистента
     response_text = generate_assistant_message(message.text)
+
+    # Проверяем, что ответ не пуст
+    if not response_text:
+        return {"response": "Ошибка: ассистент не смог сгенерировать ответ"}
+
     return {"response": response_text}
+
