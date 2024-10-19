@@ -1,14 +1,3 @@
-def aq(messageText: str):
-    from g4f.client import Client
-
-    client = Client()
-    response = client.chat.completions.create(
-        messages=[{"role": "user", "content": f"Дай мне краткий односложный и четкий ответ на мой вопрос. {messageText}"}],
-    )
-
-    return response.choices[0].message.content
-
-
 def generate_assistant_message(user_message=None):
     # Если это первое сообщение, просто приветствие
     if user_message is None:
@@ -21,5 +10,5 @@ def generate_assistant_message(user_message=None):
         return f"{text}"
 
     # Логика ответа ассистента (можно расширить)
-    response = f"{aq(user_message)}"
+    response = f""
     return response
