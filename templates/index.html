@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чат с ассистентом</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-box">
+            <!-- Первое сообщение ассистента, где применяется фильтр |safe -->
+            <div class="message gpt">{{ assistant_first_message | safe }}</div>
+        </div>
+
+        <div class="input-container">
+            <label for="fileInput" class="attachment-btn">
+                <img src="/static/images/free-icon-paper-clip-1972589.png" alt="Скрепка" class="clip-icon">
+            </label>
+            <input type="file" id="fileInput" style="display: none;">
+            <input type="text" id="userInput" placeholder="Напиши что-нибудь...">
+            <button id="sendBtn">Отправить</button>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
