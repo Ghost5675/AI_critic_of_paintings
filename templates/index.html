@@ -8,8 +8,8 @@
 </head>
 <body>
     <div class="chat-container">
-        <div class="chat-box">
-            <!-- Первое сообщение ассистента, где применяется фильтр |safe -->
+        <div class="chat-box" id="chat-box">
+            <!-- Первое сообщение ассистента -->
             <div class="message gpt">{{ assistant_first_message | safe }}</div>
         </div>
 
@@ -18,8 +18,8 @@
                 <img src="/static/images/free-icon-paper-clip-1972589.png" alt="Скрепка" class="clip-icon">
             </label>
             <input type="file" id="fileInput" style="display: none;">
-            <input type="text" id="userInput" placeholder="Напиши что-нибудь...">
-            <button id="sendBtn">Отправить</button>
+            <input type="text" id="user-input" placeholder="Напиши что-нибудь...">
+            <button id="send-btn">Отправить</button>
         </div>
     </div>
 
