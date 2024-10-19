@@ -1,0 +1,30 @@
+# Папки и файлы, игнорируемые для Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Виртуальные окружения
+venv/
+env/
+ENV/
+.venv/
+*.egg-info/
+
+# Логи
+*.log
+
+# Прочие файлы
+.DS_Store
+*.swp
+*.sublime-workspace
+*.sublime-project
+*.zip
+*.tar.gz
+*.tar.bz2
+
+# Настройки IDE
+.vscode/
+.idea/
