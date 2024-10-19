@@ -10,5 +10,5 @@ def generate_assistant_message(user_message=None):
         return f"{text}"
 
     # Логика ответа ассистента (можно расширить)
-    response = f""
+    response = f"{user_message}"
     return response
