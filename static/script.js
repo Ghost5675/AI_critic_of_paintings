@@ -35,6 +35,63 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    fileInput.addEventListener('change', function () {
+        sendFile();
+    });
+
+    function sendFile() {
+        const fileInput = document.getElementById('fileInput'); // Получаем элемент input для файлов
+        const file = fileInput.files[0]; // Получаем первый выбранный файл
+        if (file) {
+            console.log(`Имя файла: ${file.name}`);
+            console.log(`Размер файла: ${file.size} байт`);
+            console.log(`Тип файла: ${file.type}`);
+    
+            // Создаем объект FormData
+            const formData = new FormData();
+            formData.append('file', file); // Добавляем файл в FormData
+    
+            fetch('/upload_image/', {
+                method: 'POST',
+                body: formData, // Отправляем FormData
+            })
+            .then(response => response.json())
+            .then(data => {
+                displayResult(data); // Обрабатываем ответ от сервера
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    
+            // Создаем URL для отображения изображения
+            const imageUrl = URL.createObjectURL(file);
+    
+            // Создаем элемент img для отображения
+            const imgElement = document.createElement('img');
+            imgElement.src = imageUrl; // Устанавливаем src на URL объекта
+            imgElement.alt = "Загруженное изображение";
+            imgElement.classList.add('chat-image'); // Добавляем класс для стилизации (если нужно)
+    
+            // Добавляем изображение в контейнер
+            const chatBox = document.getElementById('chat-box');
+            chatBox.appendChild(imgElement);
+            chatBox.scrollTop = chatBox.scrollHeight; // Прокручиваем вниз
+        } else {
+            console.log("Файл не выбран.");
+        }
+    }
+
+    function displayResult(critique) {
+        const critiqueElement = document.createElement('div');
+        critiqueElement.classList.add('critique');
+        critiqueElement.textContent = "🤖: " + critique; // Добавляем текст критики
+        
+        const chatBox = document.getElementById('chat-box');
+        chatBox.appendChild(critiqueElement);
+        chatBox.scrollTop = chatBox.scrollHeight; // Прокручиваем вниз
+    }
+    
+
     function addMessageToChat(message, sender) {
         const chatBox = document.getElementById('chat-box');
         const messageElement = document.createElement('div');
