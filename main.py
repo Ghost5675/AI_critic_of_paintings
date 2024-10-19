@@ -35,4 +35,3 @@ async def send_message(message: Message):
         return {"response": "Ошибка: ассистент не смог сгенерировать ответ"}
 
     return {"response": response_text}
-

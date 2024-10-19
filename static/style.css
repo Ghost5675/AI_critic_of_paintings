@@ -11,9 +11,9 @@ body {
 .chat-container {
     position: absolute;
     top: 20px;    /* Отступ сверху */
-    left: 100px;  /* Отступ справа, чтобы контейнер чата находился у правого края */
-    width: 600px; /* Ширина контейнера чата */
-    height: 600px; /* Высота контейнера чата */
+    right: 20px;  /* Отступ справа, чтобы контейнер чата находился у правого края */
+    width: 700px; /* Ширина контейнера чата */
+    height: 550px; /* Высота контейнера чата */
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #fff;
@@ -63,7 +63,6 @@ body {
 }
 
 input[type="text"] {
-    overflow: auto;
     flex-grow: 1;
     padding: 10px;
     border: 1px solid #ddd;
